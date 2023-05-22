@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>speech recognition</title>
+	<style>
+	body {
+      background-color: #4C92C7;
+    }
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+}
+
+h1 {
+  font-size: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="file"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+}
+
+#submitButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#submitButton:hover {
+  background-color: #0062cc;
+}
+
+#speechTranscriptContainer {
+  margin-top: 20px;
+}
+
+#speechTranscriptContainer h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#speechText {
+  white-space: pre-wrap;
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 10px;
+  border: none;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+	</style>
+</head>
+<body>
+  <div class="container">
+	<h1>speech recognition</h1>
+	</br>
+	</br>
+    <h2>Tải file audio</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <br>
+        <input type="submit" id="submitButton" value="Transcribe"/>
+    </form>
+    
+    {% if transcript != "" %}
+        <div id="speechTranscriptContainer">
+            <h1>Transcript</h1>
+            <p id="speechText">{{ transcript }}</p>
+        </div>
+    {% endif %}
+  </div>
+</body>
+</html>
