@@ -29,11 +29,12 @@ model = SpeechRecognitionModel(
     hparams['n_class'], hparams['n_feats'], hparams['stride'], hparams['dropout']
 ).to(device)
 
-state_dict = torch.load('model4.pth', map_location=torch.device('cpu'))
+state_dict = torch.load('model8.pth', map_location=torch.device('cpu'))
 model.load_state_dict(state_dict)
 model.eval()
 
 def GreedyDecoder(output, blank_label=28, collapse_repeated=True):
+    
     arg_maxes = torch.argmax(output, dim=2)
     decode = []
     for i, args in enumerate(arg_maxes):
